@@ -35,6 +35,11 @@
 	display:inline-block;
 	margin-left:5%;
 }
+
+div#yetAnotherDiv li:nth-child(even){
+   background-color:yellow;
+}
+
   </style>
  </head>
  <body>
@@ -60,6 +65,7 @@
             Input Date:<input type="text" name="dateField" id="dateField" />
         </label>
             <input type="submit" value="submit" />
+            
         </form>
      </p>
     <p>
@@ -101,12 +107,22 @@
 			var formDate = new Date(datetext);//create a date from form input
 			var today = new Date();
 			
-			if(formDate > today)
-			{
-				alert(datetext + " is in the future!");
-			}else{
-				alert(datetext + " is in the past!");
-			}
+			function determineSeason(date) {
+  let month = date.getMonth();
+  let season = "";
+
+  if (month >= 3 && month <= 5) {
+    season = "spring";
+  } else if (month >= 6 && month <= 8) {
+    season = "summer";
+  } else if (month >= 9 && month <= 11) {
+    season = "fall";
+  } else {
+    season = "winter";
+  }
+
+  return season;
+}
 		});
 	});
     </script>
